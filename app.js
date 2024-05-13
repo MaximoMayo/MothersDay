@@ -46,7 +46,6 @@ function displaySelectedGift() {
   }
 }
 
-<<<<<<< Updated upstream
 function changeTheDropDownValue() {
   //grab the giftlist
   const giftList = document.getElementById("giftIdeas");
