@@ -1,23 +1,13 @@
 "use strict";
 
+// When the window is loaded, set up initial configurations.
 window.onload = function () {
-  //Name of Fuction, prefrix INIT to indicate this is the first thing to Do
-  initLoadDropdownGiftIdeas();
-
-  //Default option
-  const giftList = document.getElementById("giftIdeas");
-  // giftList.value = "Gift4";
-  // giftList.value = null;
-  giftList.onchange = changeTheDropDownValue;
+  initializeGiftIdeasDropdown(); // Populate the dropdown with gift options.
+  configureEventHandlers(); // Configure event handlers for UI elements.
 };
 
-function initLoadDropdownGiftIdeas() {
-  // load the dropdown list
-  //  let states = ["Alabama", "Alaska", "Arizona", ... ];
-
-  // let giftIdeas = ["A house", "A vacation", "A rose", "A photoalbum"];
-  //let giftValues = ["Gift1","Gift2","Gift3","Gift4"];
-
+// Populates the dropdown with predefined gift options.
+function initializeGiftIdeasDropdown() {
   let gifts = [
     { idea: "A house", value: "Gift1" },
     { idea: "A vacation", value: "Gift2" },
@@ -25,19 +15,22 @@ function initLoadDropdownGiftIdeas() {
     { idea: "A photoalbum", value: "Gift4" },
   ];
 
-  //Grab the list from HTML
-  const giftList = document.getElementById("giftIdeas");
-
+  const dropdown = document.getElementById("giftIdeas");
   gifts.forEach((gift) => {
-    let theOption = new Option(gift.idea, gift.value);
-    // ADDing the elements to the list
-    giftList.appendChild(theOption);
+    let option = new Option(gift.idea, gift.value);
+    dropdown.appendChild(option);
   });
 }
 
-function DisplayItem() {
-  //grab the giftlist
+// Sets the default dropdown value and assigns change event handler.
+function configureEventHandlers() {
   const giftList = document.getElementById("giftIdeas");
+  giftList.value = "Gift4"; // Set a default value if applicable.
+  giftList.onchange = displaySelectedGift; // Assign handler for change event.
+}
+
+// Displays the selected gift in the 'message' element.
+function displaySelectedGift() {
 
   //let selected value
   let selectedValue = giftList.value;
@@ -57,18 +50,14 @@ function DisplayItem() {
 function changeTheDropDownValue() {
   //grab the giftlist
   const giftList = document.getElementById("giftIdeas");
-
-  //let selected value
-  let selectedvalue = giftList.value;
-  document.getElementById("message").innerText = selectedvalue;
+  const selectedValue = giftList.value;
+  document.getElementById("message").innerText = selectedValue;
 }
 
-=======
-//need to use this for Cap 2; name says it all
->>>>>>> Stashed changes
-function ClearFilters() {
+// (Optional) Function to clear filters, if required by the application.
+function clearFilters() {
   const giftList = document.getElementById("giftIdeas");
-  giftList.value = null;
-  const searchfield = document.getElementById("mySearchField");
-  searchfield.value = "";
+  const searchField = document.getElementById("mySearchField");
+  giftList.value = null; // Reset dropdown.
+  searchField.value = ""; // Clear any text in the search field.
 }
