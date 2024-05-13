@@ -53,6 +53,7 @@ function DisplayItem() {
   }
 }
 
+<<<<<<< Updated upstream
 function changeTheDropDownValue() {
   //grab the giftlist
   const giftList = document.getElementById("giftIdeas");
@@ -62,6 +63,9 @@ function changeTheDropDownValue() {
   document.getElementById("message").innerText = selectedvalue;
 }
 
+=======
+//need to use this for Cap 2; name says it all
+>>>>>>> Stashed changes
 function ClearFilters() {
   const giftList = document.getElementById("giftIdeas");
   giftList.value = null;
